@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% extends 'base.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+{% block content %}
+
+{% for user in user_data %}
+    {{user.username}} <br>
+    {{user.email}}  <br>
+    {{user.password}} <br>
+{% endfor %}
+
+<form action="{% url 'enter' %}" method="post">
+    {% csrf_token %}
+<!-- {{form}} -->
+<!-- to iterate the form element by for loop -->
+<!-- {% for input in form %}
+    {{input}} <br>
+    <br>
+{% endfor %} -->
+    <h1>User name : {{form.username}} </h1><br>
+    <br>             
+    <h1>Email :   {{form.email}} </h1>
+    <br>
+    <h1>Password :   {{form.password}} </h1>
+    <br>
+
+
+<button name="submit" value="submit" > Submit</button>
+</form>
+
+
+
+
+
+{% endblock %}
+    
+</body>
+</html>
